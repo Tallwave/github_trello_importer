@@ -1,15 +1,14 @@
 # Copyright (c) 2015 Scott Williams
 
 require "optparse"
-require "issue_exporter"
+require "importer"
 
-module IssueExporting
+module TrelloImporter
   module CLI
 
     def run
       begin
         OptionParser.new do |opts|
-          define_options opts
           opts.on "-h", "--help" do
             puts usage
             exit

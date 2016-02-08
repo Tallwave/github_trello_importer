@@ -2,22 +2,20 @@
 
 [![Circle CI](https://circleci.com/gh/Tallwave/github_issue_exporter.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Tallwave/github_issue_exporter) [![Code Climate](https://codeclimate.com/github/Tallwave/github_issue_exporter/badges/gpa.svg)](https://codeclimate.com/github/Tallwave/github_issue_exporter)
 
-Need to archive some repositories that are stored on GitHub? Great. Don't forget to hold on to any open issues you may still have. GitHub Issue Exporter is a command-line utility that will download all the open issues for a single repository.
-
-There's also another executable for importing those issues back into a repository, so you can resurrect an archived repository with all of its issues.
+Trello is a good tool for quick data entry of user stories or issues, but it kinda sucks as a bug tracker. Fortunately it's easy to export cards from Trello in JSON, and GitHub's API makes it rather simple to create Issues from that.
 
 ## Installation
 
-GitHub Issue Exporter is built with Ruby and needs Ruby 2.0 or higher. Install it with RubyGems.
+GitHub Trello Importer is built with Ruby and needs Ruby 2.0 or higher. Install it with RubyGems.
 
 ```
-gem install github_issue_exporter
+gem install github_trello_importer
 ```
 
 Some environments may require `sudo` permissions.
 
 ```
-sudo gem install github_issue_exporter
+sudo gem install github_trello_importer
 ```
 
 ## Usage
@@ -58,15 +56,8 @@ Or you can use the `--directory` flag and load all the JSON files in the specifi
 import-github-issues --directory ~/issues tallwave github_issue_exporter [TOKEN]
 ```
 
-#### Importer Notes
-* Issues will be added to the repository as if they were brand new, so old issue numbers will not be used.
-* If your user does not have push access to the repository, assignees, milestones, and labels will not be set. Read more in the [GitHub documentation](https://developer.github.com/v3/issues/#create-an-issue).
-
 ## Roadmap
 
- * Better error handling.
- * Properly import closed issues.
- * Create a GitHub 'application' so that the user doesn't need the auth token.
 
 ## Contributing
 

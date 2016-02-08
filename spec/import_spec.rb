@@ -19,15 +19,15 @@ describe 'Import Integrations:' do
     File.read mock_file
   }
 
-  it 'inserts a single issue' do
+  it 'inserts issues' do
     stub_request(:post, "https://api.github.com/repos/swilliams/test-repo/issues?access_token=abcdef").to_return(body: mock_response)
-    importer = IssueExporting::Importer.new([issue_path], owner, repo, token)
+    importer = TrelloImporter::Importer.new(issue_path, owner, repo, token)
     expect { importer.import() }.to output('').to_stdout
   end
 
   it 'handles errors gracefully' do
     stub_request(:post, "https://api.github.com/repos/swilliams/test-repo/issues?access_token=abcdef").to_return(body: mock_bad_response, status: 403)
-    importer = IssueExporting::Importer.new([issue_path], owner, repo, token)
+    importer = TrelloImporter::Importer.new(issue_path, owner, repo, token)
     expect { importer.import() }.to raise_error SystemExit
   end
 end

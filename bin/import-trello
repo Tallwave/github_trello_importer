@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby -W
+# Copyright (c) 2016 Tallwave
+
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + "/../lib")
+
+require "importer/cli"
+
+module TrelloImporter
+  class Command
+    include CLI
+
+    def about
+      VERSION
+    end
+
+    def usage
+      <<HERE
+Import a JSON from a Trello export into GitHub issues.
+
+Usage: #{$PROGRAM_NAME} [FILE_NAME] [OWNER] [REPO] [TOKEN]
+
+Example: #{$PROGRAM_NAME} /path/to/file.json swilliams issue_exporter abcdef
+
+-h, --help        display this help and exit
+    --version     display the version
+
+HERE
+
+    end
+
+    def correct_number_of_args(arg_count)
+      arg_count == 4
+    end
+
+    def process_input(arg, index)
+      case index
+      when 0
+        @json_file = arg
+      when 1
+        @owner = arg
+      when 2
+        @repo = arg
+      when 3
+        @token = arg
+      end
+    end
+
+    def perform_action
+      importer = TrelloImporter::Importer.new(@json_file, @owner, @repo, @token)
+      importer.import
+    end
+  end
+end
+
+TrelloImporter::Command.new.run

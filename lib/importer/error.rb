@@ -1,6 +1,6 @@
 # Copyright (c) 2015 Scott Williams
 
-module IssueExporting
+module TrelloImporter
   class UsageError < RuntimeError
   end
 end

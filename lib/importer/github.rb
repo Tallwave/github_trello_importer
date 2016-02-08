@@ -1,19 +1,19 @@
 require "open-uri"
 
-module IssueExporting
+module TrelloImporter
   def self.api_url
     "https://api.github.com/repos/%s/%s/issues?access_token=%s"
   end
 
   def self.make_url(owner, repo, token, options = {})
-    url_format = IssueExporting.api_url
+    url_format = TrelloImporter.api_url
     root_url = url_format % [owner, repo, token]
     return root_url unless options[:include_closed_issues] == true
     root_url + "&state=all"
   end
 
   def self.make_uri(owner, repo, token, options = {})
-    URI.parse IssueExporting.make_url(owner, repo, token, options)
+    URI.parse TrelloImporter.make_url(owner, repo, token, options)
   end
 
   def self.turn_options_into_querystring(options)
