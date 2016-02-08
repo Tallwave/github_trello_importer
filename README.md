@@ -1,4 +1,4 @@
-# GitHub Issue Exporter
+# GitHub Trello Importer
 
 <!-- [![Circle CI](https://circleci.com/gh/Tallwave/github_issue_exporter.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Tallwave/github_issue_exporter) [![Code Climate](https://codeclimate.com/github/Tallwave/github_issue_exporter/badges/gpa.svg)](https://codeclimate.com/github/Tallwave/github_issue_exporter) -->
 
@@ -19,8 +19,14 @@ sudo gem install github_trello_importer
 ```
 
 ## Usage
-
-### Example
+```
+import-trello /path/to/file.json swilliams test-repo some-key
+```
+4 Arguments:
+1. The path to the JSON file exported by Trello.
+2. The GitHub organization (or user)
+3. The repository name
+4. Your API [token](https://github.com/blog/1509-personal-api-tokens).
 
 
 ## Contributing
