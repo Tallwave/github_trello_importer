@@ -1,3 +1,5 @@
+# Copyright (c) 2016 Tallwave
+
 require "net/http"
 require "json"
 

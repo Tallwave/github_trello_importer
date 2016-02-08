@@ -1,3 +1,5 @@
+# Copyright (c) 2016 Tallwave
+
 module TrelloImporter
   class Mapper
     def self.map_from_trello(trello_hash)

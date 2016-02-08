@@ -1,4 +1,4 @@
-# Copyright (c) 2015 Scott Williams
+# Copyright (c) 2016 Tallwave
 
 require "optparse"
 require "importer"

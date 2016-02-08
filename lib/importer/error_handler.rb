@@ -1,3 +1,5 @@
+# Copyright (c) 2016 Tallwave
+
 module TrelloImporter
   class ErrorHandler
     def response_has_error(response)
