@@ -9,12 +9,12 @@ module TrelloImporter
     def run
       begin
         OptionParser.new do |opts|
-          opts.on "-h", "--help" do
+          opts.on("-h", "--help") do
             puts usage
             exit
           end
 
-          opts.on "--version" do
+          opts.on("--version") do
             puts about
             exit
           end
